@@ -14,8 +14,11 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       # Checkout the PR branch
-      - name: Checkout Target Branch
+      - name: Checkout SAML Playground
         uses: actions/checkout@v3
+        with:
+          repository: bcgov/keycloak-example-apps
+          path: ./examples/saml/public/node
 
       - name: Build and Run SAML Playground
         run: |
@@ -23,7 +26,6 @@ jobs:
           yarn
           yarn build
           yarn local &
-        working-directory: ./examples/saml/public/node
       - name: Check Output Parameters
         run: |
           wget http://localhost:8080
