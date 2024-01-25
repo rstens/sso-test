@@ -16,6 +16,8 @@ jobs:
 
       - name: Build and Run SAML Playground
         run: |
+          npm install
+          yarn
           yarn build
           yarn local
         working-directory: ./examples/saml/public/node
