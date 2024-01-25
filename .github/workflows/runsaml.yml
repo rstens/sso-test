@@ -2,6 +2,9 @@
 # This is a desirable pattern as it allows for adhoc test runs without a code push
 name: Run SAML
 on: [workflow_dispatch, repository_dispatch]
+env:
+  SERVER_HOST: 'localhost'
+  SERVER_PORT: 8080
 jobs:
   spin-up-samls:
     runs-on: ubuntu-latest
