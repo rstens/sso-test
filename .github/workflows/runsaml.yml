@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: bcgov/keycloak-example-apps
-          path: ./examples/saml/public/node
+          path: saml
 
       - name: Build and Run SAML Playground
         run: |
@@ -26,6 +26,7 @@ jobs:
           yarn
           yarn build
           yarn local &
+        working-directory: ./saml/examples/saml/public/node    
       - name: Check Output Parameters
         run: |
           wget http://localhost:8080
