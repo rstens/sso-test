@@ -24,3 +24,7 @@ jobs:
           yarn build
           yarn local
         working-directory: ./examples/saml/public/node
+      - name: Check Output Parameters
+        run: |
+          wget http://localhost:8080
+          
